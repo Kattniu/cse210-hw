@@ -4,18 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        // requisito 1: Preguntar al usuario por su porcentaje de calificación.
+
         Console.Write("What is your grade percentage?  ");
         string input = Console.ReadLine();
         int gradePercentage;
-
-        // Validar si la entrada es un numero
         bool isValidNumber = int.TryParse(input, out gradePercentage);
 
         if (isValidNumber)
         {
-            // requisito 2: Determinar la letra de la calificacion 
-            string letter = ""; // una variable para almacenar la letra de calificacion
+            string letter = "";
 
             if (gradePercentage >= 90)
             {
@@ -37,9 +34,6 @@ class Program
             {
                 letter = "F";
             }
-
-            // requisito 3: Determinar si el usuario aprobo y 
-            //mostrar el mensaje correspondiente
             if (gradePercentage >= 70)
             {
                 Console.WriteLine(" Congratulation!:) You passed!");
@@ -48,12 +42,9 @@ class Program
             {
                 Console.WriteLine("Better luck next time!");
             }
-            // Requisito Principal 4: Imprimir la letra de calificación
-            Console.WriteLine($"your grade is: {letter}");
-            // Desafío Adicional: Determinar el signo "+" o "-" para la calificación
+            Console.WriteLine($"Your grade is: {letter}");
             string sign = "";
             int lastDigit = gradePercentage % 10;
-            // anadir signo solo si la calificación no es F y no es A+
             if (letter != "F")
             {
                 if (lastDigit >= 7)
@@ -64,18 +55,15 @@ class Program
                 {
                     sign = "-";
                 }
-
-                //no existe la calificación A+
                 if (letter == "A" && sign == "+")
                 {
-                    sign = ""; // A+ no es válido, eliminamos el "+".
+                    sign = "";
                 }
             }
 
-            // Manejar el caso de F (No existe F+ o F-)
             if (letter == "F")
             {
-                sign = ""; // No existe F+ o F-, solo F
+                sign = "";
             }
 
             Console.WriteLine($"Your final grade is: {letter}{sign}");
