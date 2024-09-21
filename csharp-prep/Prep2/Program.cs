@@ -4,73 +4,30 @@ class Program
 {
     static void Main(string[] args)
     {
-
         Console.Write("What is your grade percentage?  ");
-        string input = Console.ReadLine();
-        int gradePercentage;
-        bool isValidNumber = int.TryParse(input, out gradePercentage);
-
-        if (isValidNumber)
+        if (int.TryParse(Console.ReadLine(), out int gradeP))
         {
-            string letter = "";
+            string letter = gradeP >= 90 ? "A" :
+                            gradeP >= 80 ? "B" :
+                            gradeP >= 70 ? "C" :
+                            gradeP >= 60 ? "D" : "F";
 
-            if (gradePercentage >= 90)
-            {
-                letter = "A";
-            }
-            else if (gradePercentage >= 80)
-            {
-                letter = "B";
-            }
-            else if (gradePercentage >= 70)
-            {
-                letter = "C";
-            }
-            else if (gradePercentage >= 60)
-            {
-                letter = "D";
-            }
-            else
-            {
-                letter = "F";
-            }
-            if (gradePercentage >= 70)
-            {
-                Console.WriteLine(" Congratulation!:) You passed!");
-            }
-            else
-            {
-                Console.WriteLine("Better luck next time!");
-            }
+            Console.WriteLine(gradeP >= 70 ? "You passed!" : "Better luck next time!");
             Console.WriteLine($"Your grade is: {letter}");
-            string sign = "";
-            int lastDigit = gradePercentage % 10;
+
+            string signo = "";
             if (letter != "F")
             {
-                if (lastDigit >= 7)
-                {
-                    sign = "+";
-                }
-                else if (lastDigit < 3)
-                {
-                    sign = "-";
-                }
-                if (letter == "A" && sign == "+")
-                {
-                    sign = "";
-                }
+                int ultDig = gradeP % 10; // si el ultimo digito (ultiDig)es mayor o igual a 7 se usara +
+                signo = ultDig >= 7 ? "+" : ultDig < 3 ? "-" : "";
+                if (letter == "A" && signo == "+") signo = "";
             }
 
-            if (letter == "F")
-            {
-                sign = "";
-            }
-
-            Console.WriteLine($"Your final grade is: {letter}{sign}");
+            Console.WriteLine($"Your final grade is: {letter}{signo}");
         }
         else
         {
-            Console.WriteLine("Invalid entry. Please enter a valid number.");
+            Console.WriteLine("Please enter a valid number :) ");
         }
     }
 }
