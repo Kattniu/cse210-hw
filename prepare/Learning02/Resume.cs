@@ -3,8 +3,7 @@ public class Resume
     public string _name;
     public List<Job> _jobs = new List<Job>();
 
-    // Método para mostrar el currículum
-    public void Display()
+       public void Display()
     {
         Console.WriteLine($"Name: {_name}");
         Console.WriteLine("Jobs:");
