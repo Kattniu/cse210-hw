@@ -5,17 +5,21 @@ using System.IO;
 public class Journal
 {
     private List<Entry> _entries;
-
-    public Journal()
+//propiedad Entries: es una lista de objetos Entry, que contiene todas las entradas del diario
+    
+ //Contructor:   
+    public Journal() // inicializa la lista _entries
     {
         _entries = new List<Entry>();
     }
 
+//metodo addentry: Agrega una nueva entrada(entry)a lista _entries 
     public void AddEntry(Entry newEntry)
     {
         _entries.Add(newEntry);
     }
 
+//Metodo displayall recorre todas las engtras en _entries y llama al metodo display() de cafa una patra mosytrarlas 
     public void DisplayAll()
     {
         foreach (var entry in _entries)
@@ -23,7 +27,8 @@ public class Journal
             entry.Display();
         }
     }
-
+//Metodo savetofile: crea o sobrescrine un archivo de texto con el nombre filename 
+// para cada entrada de _entries, guarda su fecha, pregunta y respuesta separadas por | 
     public void SaveToFile(string fileName)
     {
         using (StreamWriter writer = new StreamWriter(fileName))
@@ -34,6 +39,11 @@ public class Journal
             }
         }
     }
+//metodo loadfromfile 
+//borra las entradas actuales en _entries. Carga las entradas desde el archivo, leyendo linea por linea 
+//Divide cada linea por | y crea nuevas entradas con esos datos 
+//por ejemplo si guadas las entradas en un archivo se verian algo asi..
+//2024-10-01|What was the best part of my day?|Spent time with my family.
 
     public void LoadFromFile(string fileName)
     {
@@ -53,3 +63,7 @@ public class Journal
         }
     }
 }
+//Programs.cs : es el corazon del programa que interactua con el usuario para escribir ver y guardar/cargar el diario
+// Entry.cs : Define una entrada del diario con fecha, pregunta y respuesta
+//Journal.cs: Guarda, muestra, carga y gestiona las entradas. 
+//promptGenerator.cs: te da una pregunta al azar 

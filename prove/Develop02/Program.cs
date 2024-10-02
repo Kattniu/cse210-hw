@@ -2,13 +2,15 @@ using System;
 
 class Program
 {
+    //metodo main: aqui es donde el programa interactura con el usuario 
     static void Main(string[] args)
-    {
-        Journal journal = new Journal();
+    { //Crea un OBJETO de Journal y uno de PromptGenerator 
+        Journal journal = new Journal(); 
         PromptGenerator promptGenerator = new PromptGenerator();
-
+//Ciclo while (true)
         while (true)
         {
+    //Muestras el menu con opciones         
             Console.WriteLine("Menu:");
             Console.WriteLine("1. Write a new entry");
             Console.WriteLine("2. Display journal");
@@ -51,3 +53,8 @@ class Program
         }
     }
 }
+
+//Programs.cs : es el corazon del programa que interactua con el usuario para escribir ver y guardar/cargar el diario
+// Entry.cs : Define una entrada del diario con fecha, pregunta y respuesta
+//Journal.cs: Guarda, muestra, carga y gestiona las entradas. 
+//promptGenerator.cs: te da una pregunta al azar 
