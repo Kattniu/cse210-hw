@@ -1,6 +1,6 @@
 public class Customer
 {
-    private string name;       // Nombre del cliente
+    private string name;       // Nombre del cliente 
     private Address address;    // Dirección del cliente
 
     public Customer(string name, Address address)

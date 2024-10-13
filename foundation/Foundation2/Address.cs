@@ -18,7 +18,7 @@ public class Address
         return country.ToLower() == "usa"; // Compara el país
     }
 
-    public string GetFullAddress() // Método que devuelve la dirección completa
+    public string GetFullAddress() // este Metodo devuelvo la direccion completa 
     {
         return $"{street}\n{city}, {state}\n{country}"; // Formatea la dirección
     }
