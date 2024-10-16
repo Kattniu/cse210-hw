@@ -7,15 +7,18 @@ public class Order
     private const decimal USAShippingCost = 15.00m;   // Costo de envío para EE. UU.
     private const decimal InternationalShippingCost = 35.00m; // Costo de envío internacional
 
+//constructor recibe un objeto de tipo Customer y lo asigna al atributo customer*
     public Order(Customer customer)
     {
-        this.customer = customer;
+        this.customer = customer; //Asigna el cliente al pedido
         products = new List<Product>(); // Inicializa la lista de productos
     }
 
     public void AddProduct(Product product) // Método para añadir un producto al pedido
-    {
-        products.Add(product); // Añade el producto a la lista
+
+    { //Aqui AddProduct esta declarando con void, que lo significa que no devuelve nada. 
+      // su unico proposito es agregar un producto a la lista products
+        products.Add(product); // recibe un objeto de tipo Product y los agrega a la lista productos (products) del pedido mediante products.Add(product)
     }
 
     public decimal CalculateTotalCost() // Método que calcula el costo total del pedido
